@@ -1,7 +1,13 @@
-.side-header
-  .side-header__box
-    .side-header__box__user-name
-      SEO
-    .side-header__box__menu
-      .__new-group
-    .side-header__box__menu__edit-user
+.chat-side
+  .side-header
+    .side-header__box
+      %p.side-header__box__user-name SEO
+      %ul.side-header__box__menu
+        =link_to "#", class: "side-header__box__menu__new-group" do
+          = icon('fas', 'edit')
+        %span<>
+        =link_to "#", class: "side-header__box__menu__edit-user" do
+          = icon('fas', 'cog')
+        %span<>
+  .groups
+ 
