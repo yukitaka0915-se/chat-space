@@ -180,7 +180,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
-  font-awesome-sass
+  font-awesome-sass (~> 5.11.2)
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails

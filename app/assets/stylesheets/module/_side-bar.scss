@@ -1,10 +1,8 @@
 .chat-side{
+  color: #ffffff;
   width:300px;
-  color:white;
   float:left;
-  .a{
-    color:white;
-  }
+  a{color:#ffffff;}
   .side-header{
     background-color:#253141;
     height:100px;
@@ -16,6 +14,9 @@
       justify-content:space-between;
       width:100%;
       font-weight:bold;
+      &__user-name {
+        font-size: 16px;
+      }
       &__menu {
         display:flex;
         li{
@@ -26,10 +27,10 @@
   }
 
   .groups{
-    height: calc(100vh - 100px);
-    background-color: #2f3e51;
-    padding: 20px 20px 0;
-    // overflow: scroll;
+    height:calc(100vh - 100px);
+    background-color:#2f3e51;
+    padding:20px 20px 0;
+    // overflow:scroll;
     .group{
       margin-bottom:40px;
       &__group-name{
@@ -41,7 +42,9 @@
       }
     }
   }
+
 }
+
 
 
 
