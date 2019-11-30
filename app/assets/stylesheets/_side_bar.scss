@@ -9,19 +9,19 @@
   .side-header{
     background-color: $sideHeader_bgColor;
     height: $sideHeader_height;
-    display: flex;
+    @include flexbox;
     align-items: center;
     padding: $sideHeader_padding;
     &__box{
-      display: flex;
-      justify-content: space-between;
+      @include flexbox;
+      @include justify-content(space-between);
       width: $WidthMax;
       font-weight: bold;
       &__user-name {
         font-size: $sideHeader_fontsize_username;
       }
       &__menu {
-        display: flex;
+        @include flexbox;
         li{
           margin-left: 0.3rem;
         }
@@ -33,7 +33,7 @@
     height: $sideGroups_height;
     background-color: $sideGroups_bgColor;
     padding: $sideGroups_padding;
-    // overflow:scroll;
+    overflow: scroll;
     .group{
       margin-bottom: $sideGroup_marginBottom;
       &__group-name{
