@@ -1,42 +1,31 @@
 //// 共通の定義
-$width_maxmum: 100%;
+$WidthMax: 100%;
 $FontCcolor_default: #ffffff;
-$header_height: 100px;
 
 //// side-barの定義
-// side-bar
-$sideBar_width: 300px;
-
-// side-header
+// 色の定義
 $sideHeader_bgColor: #253141;
-$sideHeader_padding: 0 20px;
+$sideGroups_bgColor: #2f3e51;
+
+// fontの設定
 $sideHeader_fontsize_username: 16px;
 $sideHeader_fontsize_groupname: 15px;
 $sideHeader_fontsize_latestmsg: 11px;
 
-// groups
-$sideGroups_bgColor: #2f3e51;
-$sideGroups_height: calc(100vh - #{$header_height} );
+// 位置の定義
+$sideHeader_padding: 0 20px;
+$sideHeader_height: 100px;
+
 $sideGroups_padding: 20px 20px 0; 
+$sideGroups_height: calc(100vh - #{$sideHeader_height} );
+
 $sideGroup_marginBottom: 40px;
 $sideGroup_groupname_marginBottom: 5px;
 
+// 幅、高さの定義
+$sideBar_width: 300px;
 
-//// chat-mainの定義
-// chat-main
-$main_width: calc(100vw - #{$sideBar_width} );
-$main_btnColor: #38aef0;
+// chat-mainの定義
+$main_width: calc(100vh - #{$sideBar_width} );
 
-// main-header
-$mainHeader_padding: 0 40px;
-$mainHeader_bdLine: solid;
-$mainHeader_bdSize: 1px;
-$mainHeader_bdColor: #eeeeee;
-
-// massages
-$mainMessages_bgColor: #fafafa;
-$mainMessages_height: calc(100vh - 190px);
-$mainMessages_padding: 46px 20px;
-
-// form
 
