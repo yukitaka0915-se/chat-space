@@ -1,31 +1,50 @@
 //// 共通の定義
+$header_height: 100px;
 $WidthMax: 100%;
+$calc_vw_max: 100vw;
+$calc_vh_max: 100vh;
 $FontCcolor_default: #ffffff;
+$marginleft_interval: 0.3rem;
 
 //// side-barの定義
-// 色の定義
-$sideHeader_bgColor: #253141;
-$sideGroups_bgColor: #2f3e51;
+// side-bar
+$sideBar_width: 300px;
 
-// fontの設定
+// side-header
+$side_color_darkBlack: #253141;
+$padding_TB0_LR20px: 0 20px;
 $sideHeader_fontsize_username: 16px;
 $sideHeader_fontsize_groupname: 15px;
 $sideHeader_fontsize_latestmsg: 11px;
 
-// 位置の定義
-$sideHeader_padding: 0 20px;
-$sideHeader_height: 100px;
-
+// side-groups
+$side_color_lightBlack: #2f3e51;
 $sideGroups_padding: 20px 20px 0; 
-$sideGroups_height: calc(100vh - #{$sideHeader_height} );
+$sideGroups_height: calc( #{calc_vh_max} - #{$header_height} );
 
+// side-groups group
 $sideGroup_marginBottom: 40px;
 $sideGroup_groupname_marginBottom: 5px;
 
-// 幅、高さの定義
-$sideBar_width: 300px;
+//// chat-mainの定義
+// chat-main
+$main_width: calc( #{$calc_vw_max} - #{$sideBar_width} );
 
-// chat-mainの定義
-$main_width: calc(100vh - #{$sideBar_width} );
+// main-header
+$padding_TB0_LR40px: 0 40px;
 
+$main_color_blackInk: #333333;
+$main_color_lightgray: #999999;
+$main_color_darkgray: #434a54;
 
+// editボタン、sendボタン
+$main_color_lightBlue: #38aef0;
+$editButton_hight: 40px;
+$editButton_maginRight: 40px;
+
+// form
+$form_height: 90px;
+
+// messages
+$editButton_maginRight: 40px;
+$mainMessages_hight: calc( #{$calc_vh_max} - #{$header_height + $form_height} );

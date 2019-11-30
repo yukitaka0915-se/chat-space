@@ -10,6 +10,11 @@
   display: none;
 }
 
-@mixin scroll {
-  
+.clearfix::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+a{
+  text-decoration:none;
 }
