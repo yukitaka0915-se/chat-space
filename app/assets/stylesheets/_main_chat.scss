@@ -74,10 +74,10 @@
     form{
       display:flex;
       .input-box{
-        position:relative;width:100%;
+        position:relative;width:$WidthMax;
         &__text{
           height:50px;
-          width:100%;
+          width:$WidthMax;
           padding:0 40px 0 10px;
           color:#434a54;
           border-style:none;

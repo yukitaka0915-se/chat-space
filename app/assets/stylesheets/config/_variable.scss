@@ -1,0 +1,31 @@
+//// 共通の定義
+$WidthMax: 100%;
+$FontCcolor_default: #ffffff;
+
+//// side-barの定義
+// 色の定義
+$sideHeader_bgColor: #253141;
+$sideGroups_bgColor: #2f3e51;
+
+// fontの設定
+$sideHeader_fontsize_username: 16px;
+$sideHeader_fontsize_groupname: 15px;
+$sideHeader_fontsize_latestmsg: 11px;
+
+// 位置の定義
+$sideHeader_padding: 0 20px;
+$sideHeader_height: 100px;
+
+$sideGroups_padding: 20px 20px 0; 
+$sideGroups_height: calc(100vh - #{$sideHeader_height} );
+
+$sideGroup_marginBottom: 40px;
+$sideGroup_groupname_marginBottom: 5px;
+
+// 幅、高さの定義
+$sideBar_width: 300px;
+
+// chat-mainの定義
+$main_width: calc(100vh - #{$sideBar_width} );
+
+
