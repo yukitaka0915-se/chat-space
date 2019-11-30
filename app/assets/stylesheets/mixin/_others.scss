@@ -1,0 +1,39 @@
+@mixin border($line, $size, $color){
+  border: $line $size $color;
+}
+
+@mixin border-bottom($line, $size, $color){
+  border-bottom: $line $size $color;
+}
+
+// main-chat chat-header member list 
+@mixin member-list{
+  @include flexbox;
+  font-size:12px;
+  color:#999999;
+}
+
+// main-chat chat-header member list 
+@mixin member{
+  margin-left:0.3rem;
+  list-style: none;
+}
+
+// main-chat chat-header Editボタン 
+@mixin editButton { 
+  height:40px;
+  line-height:40px;
+  padding:0 20px;
+  margin-top:30px;
+  @include border(solid, 1px, $main_btnColor);
+  position:absolute;
+  right:40px
+}
+
+@mixin editButtonlinkto {
+  color:#38aef0;
+  &:active{
+    color:#38aef0;
+  }
+}
+ 

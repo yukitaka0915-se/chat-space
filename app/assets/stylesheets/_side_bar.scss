@@ -8,14 +8,14 @@
   }
   .side-header{
     background-color: $sideHeader_bgColor;
-    height: $sideHeader_height;
+    height: $header_height;
     @include flexbox;
     align-items: center;
     padding: $sideHeader_padding;
     &__box{
       @include flexbox;
       @include justify-content(space-between);
-      width: $WidthMax;
+      width: $width_maxmum;
       font-weight: bold;
       &__user-name {
         font-size: $sideHeader_fontsize_username;

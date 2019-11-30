@@ -1,13 +1,17 @@
 .chat-main{
-  width:calc(100vw - 300px);
+  width: $main_width;
   float:left;
   .main-header{
-    height: 100px;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: solid 1px #eee;
-    // overflow:scroll;
+    height: $header_height;
+    padding: $mainHeader_padding;
+    @include flexbox;
+    @include justify-content(space-between);
+    @include border-bottom(
+        $mainHeader_bdLine
+        , $mainHeader_bdSize
+        , $mainHeader_bdColor
+        );
+    overflow:scroll;
     &__left-box{
       margin-top:35px;
       &__current-group{
@@ -16,34 +20,23 @@
         margin-bottom:15px;
       }
       &__member-list{
-        display:flex;
-        font-size:12px;
-        color:#999999;
+        @include member-list;
         &__member{
-          margin-left:0.3rem;
-          list-style: none;
+          @include member;
         }
       }
     }
     &__edit-btn{
-      height:40px;
-      line-height:40px;
-      padding:0 20px;
-      margin-top:30px;
-      border:solid 1px #38aef0;
-      position:absolute;right:40px
+      @include editButton;
     }
     a{
-      color:#38aef0;
-      &:active{
-        color:#38aef0;
-      }
+      @include editButtonlinkto;
     }
     
   }
   .messages{
-    height: calc(100vh - 190px);
-    padding: 46px 40px;
+    height: $mainMessages_height;
+    padding: $mainMessages_padding;
     background-color: #fafafa;
     .message{
       padding-bottom:40px;
@@ -72,12 +65,12 @@
     padding:20px 40px;
     background-color:#ddd;
     form{
-      display:flex;
+      @include flexbox;
       .input-box{
-        position:relative;width:$WidthMax;
+        position:relative;width:$width_maxmum;
         &__text{
           height:50px;
-          width:$WidthMax;
+          width:$width_maxmum;
           padding:0 40px 0 10px;
           color:#434a54;
           border-style:none;
