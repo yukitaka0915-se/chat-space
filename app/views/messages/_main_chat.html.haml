@@ -22,7 +22,8 @@
       %p.message__text Good bye World
   .form
     -# %form#new_message.new_message{"accept-charset" => "UTF-8", :enctype => "multipart/form-data", :action => "#", :method => "post"}
-    %form#new_message.new_message{"accept-charset" => "UTF-8", :enctype => "multipart/form-data"}
+    -# 現時点でのformは枠組みだけとしています。submitするとエラーになるため。
+    %form#new_message.new_message
       .input-box
         %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
         %label.input-box__image{:for => "message_image"}
