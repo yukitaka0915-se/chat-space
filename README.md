@@ -44,7 +44,6 @@ Things you may want to cover:
 |------|----|-------|
 |id|integer|primary_key: true|
 |name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :groups_users
