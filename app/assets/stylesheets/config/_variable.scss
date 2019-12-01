@@ -1,0 +1,55 @@
+//// ChatSpace
+// scssファイルのグローバル変数群の定義
+
+
+//// 共通の定義
+$header_height: 100px;            //ヘッダー部の高さ
+$WidthMax: 100%;                  //幅を最大にするとき
+$calc_vw_max: 100vw;              //幅をほかの要素との差分とする場合の基準値(100%に相当)
+$calc_vh_max: 100vh;              //高さをほかの要素との差分とする場合の基準値(100%に相当)
+$FontCcolor_default: #ffffff;   //フォント色の基準値(特に規定がない場合に使う)
+$marginleft_interval: 0.3rem;     //アイコンや要素の左位置の間隔調整に使用する。
+$padding_TB0_LR20px: 0 20px;      //左右のみにpaddingを設定する際に使用する、
+
+//// side-barの定義
+// side-bar全体
+$sideBar_width: 300px;                    // side-bar全体の幅
+
+// side-header
+$side_color_darkBlack: #253141;         // 背景色
+
+$sideHeader_fontsize_username: 16px;      // ログインユーザー名のフォントサイズ
+$sideHeader_fontsize_groupname: 15px;     // チャットグループ名のフォントサイズ
+$sideHeader_fontsize_latestmsg: 11px;     // 最新メッセージのフォントサイズ
+
+// side-groups
+$side_color_lightBlack: #2f3e51;         // 背景色
+$sideGroups_padding: 20px 20px 0;          // padding余白の定義
+$sideGroups_height: calc( #{$calc_vh_max} - #{$header_height} ); // ヘッダーの高さを引いた残り
+
+// side-groups group
+$sideGroup_marginBottom: 40px;             // group単位の下余白
+$sideGroup_groupname_marginBottom: 5px;    // group名の下余白
+
+//// chat-mainの定義
+// chat-main
+$main_width: calc( #{$calc_vw_max} - #{$sideBar_width} );// side-barの幅さを引いた残り
+
+// main-header
+$padding_TB0_LR40px: 0 40px;               // padding余白の定義
+
+$main_color_blackInk: #333333;           // group名の文字色
+$main_color_lightgray: #999999;          // groupメンバー、メッセージ投稿日時の文字色
+$main_color_darkgray: #434a54;           // メッセージの文字色
+
+// editボタン、sendボタン
+$main_color_lightBlue: #38aef0;          // 編集ボタン、送信ボタンの色
+$editButton_hight: 40px;                   // 送信ボタンの高さ
+$editButton_maginRight: 40px;              // 送信ボタンの右余白
+
+// form
+$form_height: 90px;                        // formの高さ
+
+// messages
+$editButton_maginRight: 40px;              // 背景色
+$mainMessages_hight: calc( #{$calc_vh_max} - #{$header_height + $form_height} );     // ヘッダーとフォームの高さを引いた残り

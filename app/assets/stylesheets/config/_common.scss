@@ -1,0 +1,25 @@
+// box-sizingの共通定義
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+       -o-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+// scrollbarを隠す
+*::-webkit-scrollbar {
+  display: none;
+}
+
+// floatの親要素が消えてしまわないようにするおまじない
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+// リンク文字(またはアイコン)のアンダーラインを消す
+a{
+  text-decoration: none;
+}
