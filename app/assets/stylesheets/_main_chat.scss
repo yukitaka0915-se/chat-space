@@ -4,23 +4,23 @@
   .main-header{
     height: $header_height;
     padding: $padding_TB0_LR40px;
-    display: flex;
+    @include flexbox;
     justify-content: space-between;
     border-bottom: solid 1px #eeeeee;
     overflow: scroll;
     &__left-box{
-      margin-top:35px;
+      margin-top: 35px;
       &__current-group{
         font-size: 20px;
         color: $main_color_blackInk;
         margin-bottom:15px;
       }
       &__member-list{
-        display: flex;
-        font-size:12px;
+        @include flexbox;
+        font-size: 12px;
         color: $main_color_lightgray;
         &__member{
-          margin-left:$marginleft_interval;
+          margin-left: $marginleft_interval;
           list-style: none;
         }
       }
@@ -30,8 +30,8 @@
       line-height: $editButton_hight;
       padding: $padding_TB0_LR20px;
       margin-top: 30px;
-      border:solid 1px $main_color_lightBlue;
-      position:absolute;
+      border: solid 1px $main_color_lightBlue;
+      position: absolute;
       right: $editButton_maginRight;
     }
     a{
@@ -47,18 +47,19 @@
     padding: 46px 40px;
     background-color: #fafafa;
     .message{
-      padding-bottom:40px;
+      padding-bottom: 40px;
       &__upper-info{
-        display:flex;margin-bottom:10px;
+        @include flexbox;
+        margin-bottom: 10px;
         &__talker{
           color:$main_color_darkgray;
-          font-size:16px;
-          font-weight:bold;
+          font-size: 16px;
+          font-weight: bold;
         }
         &__date{
           color:$main_color_lightgray;
-          font-size:12px;
-          margin-left:10px;
+          font-size: 12px;
+          margin-left: 10px;
         }
       }
       &__text{
@@ -70,12 +71,12 @@
   }
   .form{
     height: $form_height;
-    padding:20px 40px;
+    padding: 20px 40px;
     background-color:#ddd;
     form{
-      display:flex;
+      @include flexbox;
       .input-box{
-        position:relative;
+        position: relative;
         width: $WidthMax;
         &__text{
           height: 50px;
@@ -85,24 +86,24 @@
           border-style: none;
         }
         &__image{
-          font-size:1.3rem;
-          position:absolute;
-          top:10px;
-          right:10px;
-          cursor:pointer;
+          font-size: 1.3rem;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
           &__file{
-            display:none;
+            display: none;
           }
         }
       }
       .submit-btn{
-        width:100px;
-        height:50px;
-        padding:0 30px;
-        margin-left:15px;
+        width: 100px;
+        height: 50px;
+        padding: 0 30px;
+        margin-left: 15px;
         background-color: $main_color_lightBlue;
         color:$FontCcolor_default;
-        cursor:pointer;
+        cursor: pointer;
       }
     }
   }
