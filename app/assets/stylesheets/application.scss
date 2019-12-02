@@ -1,10 +1,10 @@
-@import "font-awesome-sprockets";
+@import "./font-awesome-sprockets";
 @import "./font-awesome";
 @import "./reset";
 @import "./config/variable";
 @import "./config/common";
-@import "./mixin/flexbox";
-@import "./wrapper";
+@import "./mixins/flexbox";
+@import "./modules/wrapper";
 @import "./modules/side_bar";
 @import "./modules/main_chat";
 @import "./modules/user";
