@@ -57,3 +57,5 @@ gem 'haml-rails'
 
 #font-awesome-sass
  gem 'font-awesome-sass', '~> 5.11.2'
+
+ gem 'devise'
