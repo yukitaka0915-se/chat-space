@@ -21,7 +21,7 @@
         %p.message__upper-info__date 2019/11/27(Wed) 20:39:12
       %p.message__text Good bye World
   .form
-    %form#new_message.new_message{accept: {charset: "UTF-8"} , enctype: "multipart/form-data", action: "#", method: "post"}
+    %form#new_message.new_message{"accept-charset": "UTF-8", enctype: "multipart/form-data", action: "#", method: "post"}
       .input-box
         %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
         %label.input-box__image{for: "message_image"}
