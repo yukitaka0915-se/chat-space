@@ -1,31 +1,34 @@
 class GroupsController < ApplicationController
-
+  
   def new
+    @group = Group.new
+    @group.users << current_user
   end
 
   def create
-    if current_user.create(group_params)
-      redirect_to root_path
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to root_path, notice: 'グループを作成しました'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-    if current_user.update(group_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if current_user.update(group_params)
+  #     redirect_to root_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   private
 
   def group_params
-    params.require(:group).permit(:name).merge(user_id: current_user.id, group_id: params[:group_id])
+    params.require(:group).permit(:name, user_ids:[])
   end
 
 end
