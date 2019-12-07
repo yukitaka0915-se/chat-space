@@ -2,11 +2,12 @@
   .main-header
     .main-header__left-box
       %h2.main-header__left-box__current-group
-        Group Name
+        = @group.name
       %ul.main-header__left-box__member-list
         members
-        %li.main-header__left-box__member-list__member seo
-        %li.main-header__left-box__member-list__member neko
+        - @group.users.each do |member|
+          %li.main-header__left-box__member-list__member
+            =member.name
     = link_to "#" do
       .main-header__edit-btn Edit
   .messages
