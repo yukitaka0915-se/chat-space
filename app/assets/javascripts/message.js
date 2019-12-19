@@ -49,9 +49,9 @@ $(function(){
       // 通信失敗時の処理
       alert('ファイルの取得に失敗しました。');
     })
-    .always(() => {
+    .always(function () {
       // submitボタンを有効化する
       $(".submit-btn").removeAttr("disabled");
-    })
+    });
   })
 });
