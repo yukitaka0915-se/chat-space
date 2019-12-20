@@ -40,7 +40,10 @@ $(function(){
     })
     .done(function(message){
       // 通信成功時の処理
+      // 投稿されたメッセージをjsonからhtmlに生成する。
       var html = buildHTML(message);
+      // 生成したhtmlをmessages要素の最後に追加して、
+      // 一番下にスクロールする。
       $('.messages').append(html).animate({ scrollTop: $('.messages')[0].scrollHeight});
     })
     .fail(function () {
@@ -48,9 +51,9 @@ $(function(){
       alert('ファイルの取得に失敗しました。');
     })
     .always(function () {
-      // メッセージテキスト、画像テキストの内容をクリアする
+      // メッセージテキスト、画像テキストの内容をクリアする。
       $('#new_message')[0].reset();
-      // submitボタンを有効化する
+      // submitボタンを有効化する。
       $('.submit-btn').removeAttr('disabled');
     });
   })
