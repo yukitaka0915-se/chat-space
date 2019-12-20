@@ -44,7 +44,7 @@ $(function(){
       var html = buildHTML(message);
       // 生成したhtmlをmessages要素の最後に追加して、
       // 一番下にスクロールする。
-      $('.messages').append(html).animate({ scrollTop: $('.messages')[0].scrollHeight});
+      $('.messages').append(html).animate({scrollTop: $('.messages')[0].scrollHeight});
     })
     .fail(function () {
       // 通信失敗時の処理
