@@ -48,11 +48,10 @@ $(function(){
       alert('ファイルの取得に失敗しました。');
     })
     .always(function () {
-      // テキストボックスの内容をクリアする
-      $('#message_body').val('');
-      $('#message_image').val('');
+      // メッセージテキスト、画像テキストの内容をクリアする
+      $('#new_message')[0].reset();
       // submitボタンを有効化する
-      $(".submit-btn").removeAttr("disabled");
+      $('.submit-btn').removeAttr('disabled');
     });
   })
 });
