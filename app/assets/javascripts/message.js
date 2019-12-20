@@ -42,14 +42,15 @@ $(function(){
       // 通信成功時の処理
       var html = buildHTML(message);
       $('.messages').append(html).animate({ scrollTop: $('.messages')[0].scrollHeight});
-      $('#message_body').val('');
-      $('#message_image').val('');
     })
     .fail(function () {
       // 通信失敗時の処理
       alert('ファイルの取得に失敗しました。');
     })
     .always(function () {
+      // テキストボックスの内容をクリアする
+      $('#message_body').val('');
+      $('#message_image').val('');
       // submitボタンを有効化する
       $(".submit-btn").removeAttr("disabled");
     });
