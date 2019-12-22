@@ -4,7 +4,7 @@ $(function(){
     // 「もしメッセージに画像が含まれていたら」という条件式
     if (message.image.url != null) {
       //メッセージに画像が含まれる場合のHTMLを作る
-      var html = `<div class="message">
+      let html = `<div class="message">
                     <div class="message__upper-info">
                       <p class="message__upper-info__talker">${message.name}</p>
                       <p class="message__upper-info__date">${message.created_at}</p>
@@ -15,7 +15,7 @@ $(function(){
                   </div>`
     } else {
       //メッセージに画像が含まれない場合のHTMLを作る
-      var html = `<div class="message">
+      let html = `<div class="message">
                     <div class="message__upper-info">
                       <p class="message__upper-info__talker">${message.name}</p>
                       <p class="message__upper-info__date">${message.created_at}</p>
@@ -28,8 +28,8 @@ $(function(){
 
   $('#new_message').on('submit', function(e){
     e.preventDefault()
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
+    let formData = new FormData(this);
+    let url = $(this).attr('action');
     $.ajax({
       url: url,       //同期通信でいう『パス』
       type: 'POST',   //同期通信でいう『HTTPメソッド』
@@ -41,7 +41,7 @@ $(function(){
     .done(function(message){
       // 通信成功時の処理
       // 投稿されたメッセージをjsonからhtmlに生成する。
-      var html = buildHTML(message);
+      let html = buildHTML(message);
       // 生成したhtmlをmessages要素の最後に追加して、
       // 一番下にスクロールする。
       $('.messages').append(html).animate({scrollTop: $('.messages')[0].scrollHeight});
