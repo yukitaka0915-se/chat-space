@@ -59,7 +59,7 @@ $(function(){
   }
 
   // チャットメンバー候補の追加ボタンclick処理
-  $('#user-search-result').on("click", '.chat-group-user__btn--add', function() {
+  $(document).on("click", '.chat-group-user__btn--add', function() {
     //追加ボタンが押された要素のデータを取得
     let user_id = $(this).attr('data-user-id');
     let user_name = $(this).attr('data-user-name');
@@ -70,17 +70,9 @@ $(function(){
   })
   
   // チャットメンバー一覧の削除ボタンclick処理
-  $('#chat-group-users').on("click", '.js-remove-btn', function() {
-    //追加ボタンが押された要素のデータを取得
-    console.log($(this).attr('[name="group[user_ids][]"]').val());
-    // let user_id = $(this).children().attr('[name="group[user_ids][]"]').val();
-    // let user_name = $('.chat-group-user__name').val();
-    // console.log(user_id);
-    // console.log(user_name);
+  $(document).on("click", '.js-remove-btn', function() {
     //追加ボタンが押された親要素を削除
-    // $(this).parent()[0].remove();
-    //追加ボタンが押された要素をチャットメンバーに追加
-    // appendUser(user_name, user_id);
+    $(this).parent()[0].remove();
   })
 
 });
