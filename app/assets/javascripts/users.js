@@ -1,13 +1,13 @@
 $(function(){
   //ユーザーリストの親要素を取得
-  let user_list = $('#user-search-result');
+  const user_list = $('#user-search-result');
 
   //ユーザーリストの追加用HTMLの生成
-  function appendUser(user_name, user_id) {
+  function appendUser(user) {
     let html = `
                 <div class="chat-group-user clearfix">
-                  <p class="chat-group-user__name">${user_name}</p>
-                  <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user_id}" data-user-name="${user_name}">追加</div>
+                  <p class="chat-group-user__name">${user.name}</p>
+                  <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
                 </div>
                 `
     user_list.append(html);
@@ -33,22 +33,25 @@ $(function(){
     })
     .done(function(users) {
       user_list.empty();
+
       if (users.length !== 0) {
-        users.forEach(function(user){
-          appendUser(user.name, user.id);
+        users.forEach(function(user) {
+          appendUser(user);
         });
-      }
-      else {
+      } else if (input.length == 0) {
+        return false;
+      } else {
         appendErrMsgToHTML("一致するユーザーが見つかりません。");
       }
     })
     .fail(function() {
-      alert("ユーザー検索に失敗しました");
-    })
+      alert("通信エラーです。ユーザーが表示できません。");
+    });
   });
   
+  // チャットメンバー追加時のhtml生成処理
   function  appendMember(user_name, user_id){
-    var html = `
+    let html = `
             <div class='chat-group-user'>
               <input name='group[user_ids][]' type='hidden' value='${user_id}'>
               <p class='chat-group-user__name'>${user_name}</p>
@@ -61,18 +64,22 @@ $(function(){
   // チャットメンバー候補の追加ボタンclick処理
   $(document).on("click", '.chat-group-user__btn--add', function() {
     //追加ボタンが押された要素のデータを取得
-    let user_id = $(this).attr('data-user-id');
-    let user_name = $(this).attr('data-user-name');
+    const user_name = $(this).attr('data-user-name');
+    const user_id = $(this).attr('data-user-id');
     //追加ボタンが押された親要素を削除
-    $(this).parent().remove();
+    $(this)
+      .parent()
+      .remove();
     //追加ボタンが押された要素をチャットメンバーに追加
     appendMember(user_name, user_id);
-  })
+  });
   
   // チャットメンバー一覧の削除ボタンclick処理
-  $(document).on("click", '.js-remove-btn', function() {
+  $(document).on("click", '.chat-group-user__btn--remove', function() {
     //追加ボタンが押された親要素を削除
-    $(this).parent().remove();
-  })
+    $(this)
+      .parent()
+      .remove();
+  });
 
 });
