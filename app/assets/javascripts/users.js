@@ -69,18 +69,18 @@ $(function(){
     appendMember(user_name, user_id);
   })
   
-  // // チャットメンバー一覧の削除ボタンclick処理
-  // $('#chat-group-users').on("click", '.js-remove-btn', function() {
-  //   //追加ボタンが押された要素のデータを取得
-  //   console.log($(this).attr('[name="group[user_ids][]"]').val());
-  //   // let user_id = $(this).children().attr('[name="group[user_ids][]"]').val();
-  //   // let user_name = $('.chat-group-user__name').val();
-  //   // console.log(user_id);
-  //   // console.log(user_name);
-  //   //追加ボタンが押された親要素を削除
-  //   // $(this).parent()[0].remove();
-  //   //追加ボタンが押された要素をチャットメンバーに追加
-  //   // appendUser(user_name, user_id);
-  // })
+  // チャットメンバー一覧の削除ボタンclick処理
+  $('#chat-group-users').on("click", '.js-remove-btn', function() {
+    //追加ボタンが押された要素のデータを取得
+    console.log($(this).attr('[name="group[user_ids][]"]').val());
+    // let user_id = $(this).children().attr('[name="group[user_ids][]"]').val();
+    // let user_name = $('.chat-group-user__name').val();
+    // console.log(user_id);
+    // console.log(user_name);
+    //追加ボタンが押された親要素を削除
+    // $(this).parent()[0].remove();
+    //追加ボタンが押された要素をチャットメンバーに追加
+    // appendUser(user_name, user_id);
+  })
 
 });
