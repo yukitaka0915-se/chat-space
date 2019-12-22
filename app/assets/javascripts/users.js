@@ -64,7 +64,7 @@ $(function(){
     let user_id = $(this).attr('data-user-id');
     let user_name = $(this).attr('data-user-name');
     //追加ボタンが押された親要素を削除
-    $(this).parent()[0].remove();
+    $(this).parent().remove();
     //追加ボタンが押された要素をチャットメンバーに追加
     appendMember(user_name, user_id);
   })
@@ -72,7 +72,7 @@ $(function(){
   // チャットメンバー一覧の削除ボタンclick処理
   $(document).on("click", '.js-remove-btn', function() {
     //追加ボタンが押された親要素を削除
-    $(this).parent()[0].remove();
+    $(this).parent().remove();
   })
 
 });
