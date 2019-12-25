@@ -1,13 +1,5 @@
 $(function(){
 
-  // 
-  let formreset = function () {
-    // メッセージテキスト、画像テキストの内容をクリアする。
-    $('#new_message')[0].reset();
-    // submitボタンを有効化する。
-    $('.submit-btn').removeAttr('disabled');
-  };
-
   // 投稿メッセージhtml
   let bodyHTML = function(message) {
     let html =  `<p class="message__lower-info__text">
