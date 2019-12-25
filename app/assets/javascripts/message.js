@@ -1,5 +1,13 @@
 $(function(){
 
+  // 
+  let formreset = function () {
+    // メッセージテキスト、画像テキストの内容をクリアする。
+    $('#new_message')[0].reset();
+    // submitボタンを有効化する。
+    $('.submit-btn').removeAttr('disabled');
+  };
+
   // 投稿メッセージhtml
   let bodyHTML = function(message) {
     let html =  `<p class="message__lower-info__text">
@@ -64,14 +72,14 @@ $(function(){
       // 生成したhtmlをmessages要素の最後に追加して、
       // 一番下にスクロールする。
       $('.messages').append(html).animate({scrollTop: $('.messages')[0].scrollHeight});
+      // メッセージテキスト、画像テキストの内容をクリアする。
+      $('#new_message')[0].reset();
     })
     .fail(function () {
       // 通信失敗時の処理
       alert('ファイルの取得に失敗しました。');
     })
     .always(function () {
-      // メッセージテキスト、画像テキストの内容をクリアする。
-      $('#new_message')[0].reset();
       // submitボタンを有効化する。
       $('.submit-btn').removeAttr('disabled');
     });
@@ -98,15 +106,25 @@ $(function(){
         $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
         });
-        //メッセージが入ったHTMLに、入れ物ごと追加
-        $('.messages').append(insertHTML);
+        //メッセージが入ったHTMLに入れ物ごと追加して、一番下にスクロールする。
+        $('.messages').append(insertHTML).animate({ scrollTop: $('.messages')[0].scrollHeight});
+        // メッセージテキスト、画像テキストの内容をクリアする。
+        $('#new_message')[0].reset();
       }
     })
     .fail(function() {
       console.log('error');
-    });  
+    })  
+    .always(function () {
+      // submitボタンを有効化する。
+      $('.submit-btn').removeAttr('disabled');
+    });
   };
 
-  // 7秒ごとに再描画
-  setInterval(reloadMessages, 7000);  
+  // チャット投稿画面のみ再描画させる
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    // 7秒ごとに再描画
+    setInterval(reloadMessages, 4000);
+  }
+
 });
