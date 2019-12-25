@@ -116,7 +116,7 @@ $(function(){
   // チャット投稿画面のみ再描画させる
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     // 7秒ごとに再描画
-    setInterval(reloadMessages, 4000);
+    setInterval(reloadMessages, 7000);
   }
 
 });
