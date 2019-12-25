@@ -63,12 +63,14 @@
           margin-left: 10px;
         }
       }
-      &__text{
-        color: $main_color_darkgray;
-        font-size: 14px;
-        margin-bottom: 10px;
+      &__lower-info{
+        &__text{
+          color: $main_color_darkgray;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
       }
-    }
+    } 
   }
   .form{
     height: $form_height;
