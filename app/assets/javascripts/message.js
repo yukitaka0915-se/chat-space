@@ -1,4 +1,17 @@
 $(function(){
+  
+  // ajaxでdoneの場合の共通終了処理。
+  let resetmessageform = function (input, insertHTML, resetarea) {
+    //メッセージが入ったHTMLに入れ物ごと追加して、一番下にスクロールする。
+    $(input).append(insertHTML).animate({scrollTop: $(input)[0].scrollHeight});
+    // メッセージテキスト、画像テキストの内容をクリアする。
+    $(resetarea)[0].reset();
+  };
+
+  // ajaxで無効化されたsendボタンを有効化する。
+  let sendButtonActivate = function (button) {
+    $(button).removeAttr('disabled');
+  };
 
   // 投稿メッセージhtml
   let bodyHTML = function(message) {
@@ -61,11 +74,9 @@ $(function(){
       // 通信成功時の処理
       // 投稿されたメッセージをjsonからhtmlに生成する。
       let html = buildHTML(message);
-      // 生成したhtmlをmessages要素の最後に追加して、
-      // 一番下にスクロールする。
-      $('.messages').append(html).animate({scrollTop: $('.messages')[0].scrollHeight});
+      // 生成したhtmlをmessages要素の最後に追加して、一番下にスクロールする。
       // メッセージテキスト、画像テキストの内容をクリアする。
-      $('#new_message')[0].reset();
+      resetmessageform('.messages', html, '#new_message');
     })
     .fail(function () {
       // 通信失敗時の処理
@@ -73,7 +84,8 @@ $(function(){
     })
     .always(function () {
       // submitボタンを有効化する。
-      $('.submit-btn').removeAttr('disabled');
+      // $('.submit-btn').removeAttr('disabled');
+      sendButtonActivate('.submit-btn');
     });
   })
 
@@ -98,10 +110,9 @@ $(function(){
         $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
         });
-        //メッセージが入ったHTMLに入れ物ごと追加して、一番下にスクロールする。
-        $('.messages').append(insertHTML).animate({ scrollTop: $('.messages')[0].scrollHeight});
+        // 生成したhtmlをmessages要素の最後に追加して、一番下にスクロールする。
         // メッセージテキスト、画像テキストの内容をクリアする。
-        $('#new_message')[0].reset();
+        resetmessageform('.messages', insertHTML, '#new_message');
       }
     })
     .fail(function() {
