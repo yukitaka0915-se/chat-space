@@ -15,46 +15,61 @@ $(function(){
 
   // 投稿メッセージhtml
   let bodyHTML = function(message) {
-    let html =  `<p class="message__lower-info__text">
-                  ${message.body}
-                </p>`
-    return html
+    let html = `<p class="message__lower-info__text">${message.body}</p>`
+    return html;
   };
 
   // 画像ファイルhtml
   let imageHTML = function(message) {
-    let html = `<img src="${message.image}" class="lower-message__image" alt="${message.imagename}">` 
-    return html
+    let html = `<img src="${message.image}" class="lower-message__image" alt="${message.imagename}">`
+    return html;
   };
 
-  // 閉じタグ
-  let closeTAG = function(html, tag) {
-    return html + `</${tag}>`
+  // Message親要素
+  let parentMessageHTML = function(buildhtml) {
+    let html = `<div class="message">${buildhtml}</div>`
+    return html;
   };
 
+  // Message子要素
+  let childMessageHTML = function(buildhtml, message) {
+    //data-idが反映されるようにしている
+    let html = `<div class="message" data-message-id=${message.id}>${buildhtml}</div>`
+    return html;
+  };
+
+  // Message孫要素
+  let mainMassageHTML = function(buildhtml) {
+    let html = `<div class="message__lower-info">${buildhtml}</div>`
+    return html;
+  };
+  
   // 投稿メッセージのhtmlを生成する
   let buildHTML = function(message) {
-    let mainhtml = `<div class="message">`
-    //data-idが反映されるようにしている
-    let upperhtml = `<div class="message" data-message-id=${message.id}></div>
-                     <div class="message__upper-info">
-                       <p class="message__upper-info__talker">${message.user_name}</p>
-                       <p class="message__upper-info__date">${message.created_at}</p>
-                     </div>`
+    // upper-infoの生成
+    let upperhtml = `<div class="message__upper-info">`
+                  + ` <p class="message__upper-info__talker">${message.user_name}</p>`
+                  + ` <p class="message__upper-info__date">${message.created_at}</p>`
+                  + `</div>`
+
+    // lower-infoの生成
     let lowerhtml = ''
-    let lowerheadhtml = `<div class="message__lower-info">`
     if (message.body && message.image) {
       //メッセージと画像が両方あるhtml
-      lowerhtml = closeTAG(lowerheadhtml + bodyHTML(message) + imageHTML(message), 'div');
+      lowerhtml = bodyHTML(message) + imageHTML(message);
     } else if (message.body) {
       //メッセージのみのhtml
-      lowerhtml = closeTAG(lowerheadhtml + bodyHTML(message), 'div');
+      lowerhtml = bodyHTML(message);
     } else if (message.image) {
       //画像のみのhtml
-      lowerhtml = closeTAG(lowerheadhtml + imageHTML(message), 'div');
+      lowerhtml = imageHTML(message);
     };
-    // メッセージhtmlの生成
-    let html = closeTAG(mainhtml + upperhtml + lowerhtml, 'div');
+    lowerhtml = mainMassageHTML(lowerhtml);
+
+    // メッセージ子要素htmlの生成
+    let childhtml = childMessageHTML(upperhtml + lowerhtml, message);
+    // メッセージ親要素htmlの生成
+    let html = parentMessageHTML(childhtml);
     return html;
   };
 
