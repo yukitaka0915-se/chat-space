@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :messages
 
+  # カレントユーザー以外を検索する。
+  scope :has_without_currentuser, -> (keyword, user_id){
+    where(['name LIKE ?', "%#{keyword}%"]).where.not(id: user_id)
+  }
+
   # チャットメンバー以外のユーザーを検索する。
   scope :has_without_current_groupuser, -> (keyword, group_id){
     User.joins(

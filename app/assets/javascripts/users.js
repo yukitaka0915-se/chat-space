@@ -36,8 +36,14 @@ $(function(){
   // チャットメンバー検索テキストでのキー入力イベント処理
   $('#user-search-field').on('keyup', function() {
     let input = $('#user-search-field').val();
-    const act = $('.edit_group').attr('action');
-    const group_id = act.slice(-1);
+    // 新規か編集かを判定
+    const newact = $('.new_group').attr('action');
+    const editact = $('.edit_group').attr('action');
+    let group_id = null;
+    if (newact === undefined) {
+      // グループ編集画面ならgroup_idを取得
+      group_id = editact.slice(-1);
+    }  
     $.ajax({
       url: '/users',
       type: 'GET',

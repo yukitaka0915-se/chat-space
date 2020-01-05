@@ -2,8 +2,13 @@ class UsersController < ApplicationController
 
   def index
     return nil if params[:keyword] == ""
-    # カレントグループのメンバー以外のユーザーを検索する
-    @users = User.has_without_current_groupuser("#{params[:keyword]}", "#{params[:group_id]}").limit(10)
+    if params[:group_id] == ""
+      # カレントグループのメンバー以外のユーザーを検索する
+      @users = User.has_without_currentuser("#{params[:keyword]}", current_user.id).limit(10)
+    else
+      # カレントグループのメンバー以外のユーザーを検索する
+      @users = User.has_without_current_groupuser("#{params[:keyword]}", "#{params[:group_id]}").limit(10)
+    end
     respond_to do |format|
       format.html
       format.json
