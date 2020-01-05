@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     return nil if params[:keyword] == ""
     # カレントグループのメンバー以外のユーザーを検索する
     @users = User.has_without_current_groupuser("#{params[:keyword]}", "#{params[:group_id]}").limit(10)
-
     respond_to do |format|
       format.html
       format.json

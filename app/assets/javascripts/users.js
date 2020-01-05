@@ -39,8 +39,8 @@ $(function(){
     const act = $('.edit_group').attr('action');
     const group_id = act.slice(-1);
     $.ajax({
-      url: "/users",
-      type: "GET",
+      url: '/users',
+      type: 'GET',
       data: { keyword: input, group_id: group_id },
       dataType: 'json'
     })
@@ -62,7 +62,7 @@ $(function(){
   });
 
   // チャットメンバー候補の追加ボタンclick処理
-  $(document).on("click", '.chat-group-user__btn--add', function() {
+  $(document).on('click', '.chat-group-user__btn--add', function() {
     //追加ボタンが押された要素のデータを取得
     const user_name = $(this).attr('data-user-name');
     const user_id = $(this).attr('data-user-id');
@@ -75,7 +75,7 @@ $(function(){
   });
   
   // チャットメンバー一覧の削除ボタンclick処理
-  $(document).on("click", '.chat-group-user__btn--remove', function() {
+  $(document).on('click', '.chat-group-user__btn--remove', function() {
     // //削除ボタンが押された要素のデータを取得
     const user_name = $(this).attr('data-user-name');
     const user_id = $(this).attr('data-user-id');
