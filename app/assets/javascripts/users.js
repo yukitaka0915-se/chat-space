@@ -5,7 +5,7 @@ $(function(){
   
   // チャットメンバー追加時のhtml生成処理
   function appendMember(user_name, user_id){
-    let html = `<div class='chat-group-user'>
+    let html = `<div class='chat-group-user clearfix'>
                   <input name='group[user_ids][]' type='hidden' value='${user_id}'>
                   <p class='chat-group-user__name'>${user_name}</p>
                   <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${user_id}" data-user-name="${user_name}">削除</div>
@@ -18,29 +18,31 @@ $(function(){
 
   //ユーザーリストの追加用HTMLの生成
   function appendUser(user_name, user_id) {
-    let html = `<div class="chat-group-user clearfix">
-                  <p class="chat-group-user__name">${user_name}</p>
-                  <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user_id}" data-user-name="${user_name}">追加</div>
+    let html = `<div class='chat-group-user clearfix'>
+                  <p class='chat-group-user__name'>${user_name}</p>
+                  <div class='user-search-add chat-group-user__btn chat-group-user__btn--add' data-user-id='${user_id}' data-user-name='${user_name}'>追加</div>
                 </div>`
     user_list.append(html);
   }
   
   //ユーザーが見つからなかった時の追加用HTMLの生成
   function appendErrMsgToHTML(msg) {
-    let html = `<div class="chat-group-user clearfix">
-                  <p class="chat-group-user__name">${msg}</p>
+    let html = `<div class='chat-group-user clearfix'>
+                  <p class='chat-group-user__name'>${msg}</p>
                 </div>`
     user_list.append(html);
   }
 
   // チャットメンバー検索テキストでのキー入力イベント処理
-  $('#user-search-field').on("keyup", function() {
-    let input = $("#user-search-field").val();
+  $('#user-search-field').on('keyup', function() {
+    let input = $('#user-search-field').val();
+    const act = $('.edit_group').attr('action');
+    const group_id = act.slice(-1);
     $.ajax({
-      type: "GET",
       url: "/users",
-      data: { keyword: input },
-      dataType: "json"
+      type: "GET",
+      data: { keyword: input, group_id: group_id },
+      dataType: 'json'
     })
     .done(function(users) {
       user_list.empty();
@@ -84,5 +86,4 @@ $(function(){
     //削除ボタンが押された要素をユーザーリストに追加
     appendUser(user_name, user_id);
   });
-
 });

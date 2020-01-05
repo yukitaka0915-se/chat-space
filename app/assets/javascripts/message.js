@@ -99,7 +99,6 @@ $(function(){
     })
     .always(function () {
       // submitボタンを有効化する。
-      // $('.submit-btn').removeAttr('disabled');
       sendButtonActivate('.submit-btn');
     });
   })
@@ -135,7 +134,7 @@ $(function(){
     })  
     .always(function () {
       // submitボタンを有効化する。
-      $('.submit-btn').removeAttr('disabled');
+      sendButtonActivate('.submit-btn');
     });
   };
 
