@@ -1,5 +1,21 @@
 $(function(){
 
+  //追加・削除ボタンが押された時のリスト削除処理
+  function RemoveList(element) {
+    //ボタンが押された親要素を削除
+    $(element)
+      .parent()
+      .remove();
+  }
+  //追加・削除ボタンが押された時のユーザー名取得
+  let user_name = function(elemnt) {
+    return elemnt.attr('data-user-name');
+  }
+  //追加・削除ボタンが押された時のユーザーid取得
+  let user_id = function(elemnt) {
+    return elemnt.attr('data-user-id');
+  }
+
   // チャットメンバーリストの親要素を取得
   const member_list = $('#chat-group-users');
   
@@ -43,7 +59,7 @@ $(function(){
     if (newact === undefined) {
       // グループ編集画面ならgroup_idを取得
       group_id = editact.slice(-1);
-    }  
+    }
     $.ajax({
       url: '/users',
       type: 'GET',
@@ -69,27 +85,18 @@ $(function(){
 
   // チャットメンバー候補の追加ボタンclick処理
   $(document).on('click', '.chat-group-user__btn--add', function() {
-    //追加ボタンが押された要素のデータを取得
-    const user_name = $(this).attr('data-user-name');
-    const user_id = $(this).attr('data-user-id');
-    //追加ボタンが押された親要素を削除
-    $(this)
-      .parent()
-      .remove();
+    //チャットメンバーデータの取得と親要素の削除
+    RemoveList($(this));
     //追加ボタンが押された要素をチャットメンバーに追加
-    appendMember(user_name, user_id);
+    appendMember(user_name($(this)), user_id($(this)));
   });
   
   // チャットメンバー一覧の削除ボタンclick処理
   $(document).on('click', '.chat-group-user__btn--remove', function() {
-    // //削除ボタンが押された要素のデータを取得
-    const user_name = $(this).attr('data-user-name');
-    const user_id = $(this).attr('data-user-id');
-    //削除ボタンが押された親要素を削除
-    $(this)
-      .parent()
-      .remove();
+    //追加ユーザーデータの取得と親要素の削除
+    RemoveList($(this));
     //削除ボタンが押された要素をユーザーリストに追加
-    appendUser(user_name, user_id);
+    appendUser(user_name($(this)), user_id($(this)));
   });
+  
 });
