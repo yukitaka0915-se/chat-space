@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   # チャットメンバー以外のユーザーを検索する。
   scope :has_without_current_groupuser, -> (keyword, group_id){
-    User.joins(
+    joins(
       "LEFT OUTER JOIN group_users ON group_id = #{group_id} and user_id = users.id"
     ).where(['name LIKE ?', "%#{keyword}%"]).where(group_users: { user_id: nil })
    }
