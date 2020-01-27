@@ -7,7 +7,7 @@
         members
         - @group.users.each do |member|
           %li.main-header__left-box__member-list__member
-            =member.name
+            = member.name
     = link_to edit_group_path(@group.id) do
       .main-header__edit-btn Edit
   .messages
